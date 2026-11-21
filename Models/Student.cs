@@ -1,0 +1,23 @@
+using System.ComponentModel.DataAnnotations;
+
+namespace StudentManagementAPI.Models
+{
+    public class Student
+    {
+        public int Id { get; set; }
+
+        [Required(ErrorMessage = "Name is required.")]
+        [StringLength(100, MinimumLength = 2,
+            ErrorMessage = "Name must be between 2 and 100 characters.")]
+        public string Name { get; set; } = "";
+
+        [Required(ErrorMessage = "Email is required.")]
+        [EmailAddress(ErrorMessage = "Email format is invalid.")]
+        [StringLength(150)]
+        public string Email { get; set; } = "";
+
+        [Required(ErrorMessage = "Course is required.")]
+        [StringLength(100)]
+        public string Course { get; set; } = "";
+    }
+}
